@@ -15,7 +15,7 @@ app.use("/uploads", express.static("uploads"));
 app.use(
   cors({
     origin: "*",
-    Credential: true,
+    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
