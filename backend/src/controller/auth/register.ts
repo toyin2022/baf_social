@@ -34,6 +34,6 @@ export const Register = async (req: Request, res: Response) => {
         "User registered. Check your email to verify your account with OTP.",
     });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    res.status(500).json({ message: "Server error. Error creating an account", error });
   }
 };
