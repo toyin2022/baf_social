@@ -8,6 +8,7 @@ import MyPosts from "./pages/MyPosts";
 import Profile from "./pages/Profile";
 import SavedPost from "./pages/SavedPost";
 import LikedPost from "./pages/LikedPost";
+import { Toaster } from "sonner";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           }
         />
       </Routes>
+      <Toaster />
     </Router>
   );
 };

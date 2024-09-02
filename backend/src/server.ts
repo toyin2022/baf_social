@@ -5,13 +5,20 @@ import commentRoute from "./routes/commentRoute";
 import { connection } from "./database/connection";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
 
 // middleware
 app.use("/uploads", express.static("uploads"));
-
+app.use(
+  cors({
+    origin: "*",
+    Credential: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
