@@ -10,8 +10,10 @@ const AuthLayout = ({ children }) => {
         </h1>
       </div>
       <div className="flex w-[90vw]  items-center justify-center">
-        <div className="w-1/2 flex items-center justify-center">{children}</div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
+          {children}
+        </div>
+        <div className="w-1/2 hidden lg:flex">
           <img src={authImg} className="w" alt="authentication" />
         </div>
       </div>
