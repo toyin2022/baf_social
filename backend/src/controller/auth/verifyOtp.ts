@@ -6,14 +6,14 @@ export const verifyOtp = async (req: Request, res: Response) => {
   const { email, otp } = req.body;
 
   try {
-    const otpRecord = await Otp.findOne({ email, otp });
+    const otpRecord = await Otp.findOne({ email });
     if (!otpRecord) {
-      return res.status(200).json({ message: "Invalid or expired OTP" });
+      return res.status(400).json({ message: "Invalid or expired OTP" });
     }
 
     if (otpRecord.expiresAt < new Date()) {
       await Otp.deleteOne({ _id: otpRecord._id });
-      return res.status(200).json({ message: "OTP has expired" });
+      return res.status(400).json({ message: "OTP has expired" });
     }
 
     // Activate user after successful OTP verification
